@@ -8,18 +8,21 @@ export const siteConfig = {
   github: "https://github.com/himanshup016/",
   linkedin: "https://www.linkedin.com/in/himanshu-pise/",
   twitter: "https://twitter.com/himanshu",
+  resumeUrl: "/resume.pdf",
 };
 
 export const navLinks = [
   { label: "About", href: "#about" },
   { label: "Projects", href: "#projects" },
   { label: "Experience", href: "#experience" },
+  { label: "Certifications", href: "#certifications" },
   { label: "Contact", href: "#contact" },
 ];
 
 export const typingRoles = [
   "Full-Stack Engineer",
   "UI/UX Designer",
+  "Frontend Engineer",
   "React Specialist",
   "Open Source Enthusiast",
   "Problem Solver",
@@ -126,6 +129,7 @@ export const projects = [
     github: "https://github.com/himanshu/lms-integration", // Placeholder based on GitHub profile link
     live: "https://lms.demo",
     featured: true,
+    type: "Professional",
   },
   {
     id: 2,
@@ -136,7 +140,30 @@ export const projects = [
     github: "https://github.com/himanshu/ecommerce-platform",
     live: "https://ecommerce.demo",
     featured: true,
+    type: "Professional",
   },
+  {
+    id: 3,
+    title: "Dudhved — Premium Dairy basedE-commerce Platform",
+    description:
+      "A full-stack, end-to-end e-commerce platform built from scratch and running in production. Features OTP-based auth, a serverless backend, and a glassmorphism UI with real-time admin management.",
+    tags: ["Next.js 15", "NestJS", "PostgreSQL", "AWS Lambda", "Redux Toolkit", "Tailwind CSS v4"],
+    github: "https://github.com/himanshu/dudhved", // Based on GitHub handle in resume[cite: 1]
+    live: "https://dudhved.com",
+    featured: true,
+    type: "Personal",
+  },
+  {
+    id: 4,
+    title: "VRDS - Vaccination Record Data System",
+    description:
+      "A comprehensive web application designed to streamline the process of vaccination record management for children aged 0–12 years. The system serves as a centralized, secure platform for parents to maintain their children's immunization history, receive timely reminders for upcoming vaccinations, and access educational resources regarding vaccine safety and importance.",
+    tags: ["php", "mysql", "bootstrap", "javascript"],
+    github: "https://github.com/himanshup016/VRDS", // Based on GitHub handle in resume[cite: 1]
+    live: "#",
+    featured: false,
+    type: "Personal",
+  }
 ];
 
 export const experiences = [
@@ -149,7 +176,129 @@ export const experiences = [
     description:
       "Architected MERN stack features improving performance by 30%. Designed a reusable UI library with Material UI, reducing duplication by 40%. Implemented RBAC/JWT security and led technical initiatives for junior developers while maintaining 85%+ test coverage.",
     skills: ["React.js", "Node.js", "Express.js", "MongoDB", "TypeScript",
-      "Material UI", "Redux Toolkit", "Jest", "Adobe Learning Manager",
+      "Material UI", "Redux Toolkit", "Jest",
       "GraphQL", "AWS", "Jira", "Confluence", "Docker", "Git"],
+    tools: ["Intellum LMS", "Adobe Learning Manager", "Workato", "Jira", "Git",]
   },
+];
+
+export const certifications = [
+  {
+    id: 1,
+    name: "Frontend Developer (React)",
+    issuer: "Hackerrank",
+    date: "2026",
+    link: "https://www.hackerrank.com/certificates/65b9165d6919",
+  },
+  {
+    id: 2,
+    name: "Front-End Web Development",
+    issuer: "IBM",
+    date: "2026",
+    link: "https://www.credly.com/badges/b89c8fea-9ea3-4c5c-a448-d69bbcedfcd1",
+
+  },
+  {
+    id: 3,
+    name: "Certified Intellum Admin Badge",
+    issuer: "Intellum",
+    date: "2025",
+    link: "https://partners.intellum.com/student/award/YckQ3PrbxdAbJYP8fnigaZME",
+
+  },
+  {
+    id: 4,
+    name: "The Complete Node.js Developer Course",
+    issuer: "Udemy",
+    date: "2025",
+    link: "https://udemy-certificate.s3.amazonaws.com/pdf/UC-3d48a306-ab1f-44a6-becf-e830e97878cc.pdf",
+
+  },
+  {
+    id: 5,
+    name: "Workato Foundations Level 2",
+    issuer: "Workato",
+    date: "2025",
+    link: "https://verify.skilljar.com/c/2dx5az6jjr7f",
+  },
+  {
+    id: 6,
+    name: "Next.js App Router Fundamentals",
+    issuer: "Vercel",
+    date: "2025",
+    link: "https://nextjs.org/learn/certificate?course=dashboard-app&user=123232&certId=dashboard-app-123232-1764746218255",
+  }
+];
+
+import {
+  FaJs, FaHtml5, FaCss3Alt, FaNodeJs, FaReact, FaBootstrap, FaFigma, FaJava,
+  FaPython
+} from "react-icons/fa6";
+import {
+  SiTypescript, SiNextdotjs, SiRedux, SiTailwindcss, SiMui, SiExpress, SiJsonwebtokens, SiMongodb, SiPostgresql, SiGit, SiGithubactions
+} from "react-icons/si";
+import { VscVscode, VscAzureDevops } from "react-icons/vsc";
+import { Blocks, Server, Users, BrainCircuit } from "lucide-react";
+
+export const skillsData = [
+  {
+    category: "Languages",
+    items: [
+      { name: "JavaScript (ES6+)", icon: FaJs },
+      { name: "TypeScript", icon: SiTypescript },
+      { name: "HTML5", icon: FaHtml5 },
+      { name: "CSS3", icon: FaCss3Alt },
+      { name: "Node.js", icon: FaNodeJs },
+      { name: "Python", icon: FaPython },
+      { name: "Java", icon: FaJava },
+    ]
+  },
+  {
+    category: "Frameworks/Libraries",
+    items: [
+      { name: "React.js", icon: FaReact },
+      { name: "Next.js", icon: SiNextdotjs },
+      { name: "Redux", icon: SiRedux },
+      { name: "Tailwind CSS", icon: SiTailwindcss },
+      { name: "ShadCN", icon: Blocks },
+      { name: "Bootstrap", icon: FaBootstrap },
+      { name: "Material UI", icon: SiMui }
+    ]
+  },
+  {
+    category: "Backend / APIs",
+    items: [
+      { name: "RESTful APIs", icon: Server },
+      { name: "Express.js", icon: SiExpress },
+      { name: "JWT", icon: SiJsonwebtokens },
+      { name: "MongoDB", icon: SiMongodb },
+      { name: "PostgreSQL", icon: SiPostgresql },
+    ]
+  },
+  {
+    category: "Tools",
+    items: [
+      { name: "Git", icon: SiGit },
+      { name: "Azure DevOps", icon: VscAzureDevops },
+      { name: "GitHub Actions", icon: SiGithubactions },
+      { name: "VS Code", icon: VscVscode },
+      { name: "Figma", icon: FaFigma }
+    ]
+  },
+  {
+    category: "Best Practices",
+    items: [
+      { name: "SOLID", icon: BrainCircuit },
+      { name: "DRY", icon: BrainCircuit },
+      { name: "KISS", icon: BrainCircuit },
+      { name: "YAGNI", icon: BrainCircuit }
+    ]
+  },
+  {
+    category: "Soft Skills",
+    items: [
+      { name: "Communication", icon: Users },
+      { name: "Leadership", icon: Users }
+    ]
+  }
 ];

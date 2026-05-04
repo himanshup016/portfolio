@@ -8,13 +8,16 @@ import { Button, buttonVariants } from "@/components/ui/button";
 import Link from "next/link";
 import { Icons } from "@/components/ui/icons";
 
-const filters = ["All", "Featured"];
+const filters = ["All", "Professional", "Personal"];
 
 export default function ProjectsSection() {
   const [activeFilter, setActiveFilter] = useState("All");
 
-  const filtered =
-    activeFilter === "All" ? projects : projects.filter((p) => p.featured);
+  const filtered = projects.filter((p) => {
+    if (activeFilter === "All") return true;
+    if (activeFilter === "Featured") return p.featured;
+    return p.type === activeFilter;
+  });
 
   return (
     <section id="projects" className="py-24 md:py-32 relative">

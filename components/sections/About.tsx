@@ -1,7 +1,10 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { techStack } from "@/lib/data";
+import { techStack, siteConfig } from "@/lib/data";
+import { Download } from "lucide-react";
+import Link from "next/link";
+import { buttonVariants } from "@/components/ui/button";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 40 },
@@ -39,7 +42,7 @@ export default function AboutSection() {
           {/* Left — text */}
           <div className="space-y-6">
             {[
-              `I'm ${" "}a Full-Stack Engineer with 5+ years of experience building scalable web applications from the ground up. My sweet spot is the intersection of great engineering and beautiful design.`,
+              `I'm ${" "}a Full-Stack Engineer with 3+ years of experience building scalable web applications from the ground up. My sweet spot is the intersection of great engineering and beautiful design.`,
               `I specialize in the React ecosystem — from crafting pixel-perfect component libraries to designing complex backend architectures with Node.js and cloud services. I care deeply about performance, accessibility, and developer experience.`,
               `When I'm not shipping code, you'll find me contributing to open source, exploring new design trends, or mentoring junior developers. I believe that great software is made by teams who communicate well and ship fast.`,
             ].map((text, i) => (
@@ -65,8 +68,8 @@ export default function AboutSection() {
               className="grid grid-cols-3 gap-4 pt-4"
             >
               {[
-                { value: "5+", label: "Years Experience" },
-                { value: "50+", label: "Projects Shipped" },
+                { value: "3+", label: "Years Experience" },
+                { value: "10+", label: "Projects Shipped" },
                 { value: "20+", label: "Happy Clients" },
               ].map(({ value, label }) => (
                 <div
@@ -77,6 +80,26 @@ export default function AboutSection() {
                   <div className="text-xs text-muted-foreground mt-1 font-medium">{label}</div>
                 </div>
               ))}
+            </motion.div>
+
+            {/* Resume Button */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.5 }}
+              className="pt-2"
+            >
+              <a
+                href={siteConfig.resumeUrl}
+                download="Himanshu_Resume.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={buttonVariants({ size: "lg", className: "rounded-full gap-2 font-semibold" })}
+              >
+                <Download className="size-4" />
+                Download Resume
+              </a>
             </motion.div>
           </div>
 

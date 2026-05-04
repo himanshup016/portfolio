@@ -56,9 +56,8 @@ export default function ExperienceSection() {
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true, margin: "-60px" }}
                   transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-                  className={`relative flex gap-8 md:gap-0 ${
-                    isEven ? "md:flex-row" : "md:flex-row-reverse"
-                  }`}
+                  className={`relative flex gap-8 md:gap-0 ${isEven ? "md:flex-row" : "md:flex-row-reverse"
+                    }`}
                 >
                   {/* Desktop: half-width card */}
                   <div className="hidden md:block md:w-[calc(50%-2rem)]" />
@@ -70,9 +69,8 @@ export default function ExperienceSection() {
 
                   {/* Card */}
                   <div
-                    className={`flex-1 md:w-[calc(50%-2rem)] bg-card border border-border/50 rounded-2xl p-6 hover:border-primary/30 hover:shadow-lg hover:shadow-primary/5 transition-all duration-300 group ${
-                      isEven ? "md:ml-8" : "md:mr-8"
-                    }`}
+                    className={`flex-1 md:w-[calc(50%-2rem)] bg-card border border-border/50 rounded-2xl p-6 hover:border-primary/30 hover:shadow-lg hover:shadow-primary/5 transition-all duration-300 group ${isEven ? "md:ml-8" : "md:mr-8"
+                      }`}
                   >
                     {/* Top accent */}
                     <div className="absolute top-0 inset-x-0 h-px rounded-t-2xl bg-gradient-to-r from-transparent via-primary/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
@@ -106,6 +104,16 @@ export default function ExperienceSection() {
                           className="text-[11px] font-semibold px-2.5 py-1 rounded-full bg-primary/10 text-primary"
                         >
                           {skill}
+                        </span>
+                      ))}
+                    </div>
+                    <div className="flex flex-wrap gap-2 mb-5">
+                      {exp.tools.map((tool) => (
+                        <span
+                          key={tool}
+                          className="text-[11px] font-semibold px-2.5 py-1 rounded-full bg-primary/10 text-primary"
+                        >
+                          {tool}
                         </span>
                       ))}
                     </div>
