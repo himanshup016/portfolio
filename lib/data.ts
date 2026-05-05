@@ -125,8 +125,8 @@ export const projects = [
     description:
       "Enterprise LMS serving 15,000+ active users. Designed modular, API-driven architecture with distributed content delivery, infinite scrolling, and server-side pagination for 100,000+ records.",
     tags: ["React.js", "Node.js", "Express.js", "MongoDB", "ALM API"],
-    github: "https://github.com/himanshu/lms-integration", // Placeholder based on GitHub profile link
-    live: "https://lms.demo",
+    github: "#", // Placeholder based on GitHub profile link
+    live: "#",
     featured: true,
     type: "Professional",
   },
@@ -136,8 +136,8 @@ export const projects = [
     description:
       "Full-stack MERN platform processing 10,000+ daily transactions. Features real-time inventory management, secure payment workflows, and a MongoDB-powered recommendation engine.",
     tags: ["MongoDB", "Express.js", "React.js", "Node.js", "Redis", "Distributed Architecture"],
-    github: "https://github.com/himanshu/ecommerce-platform",
-    live: "https://ecommerce.demo",
+    github: "#",
+    live: "#",
     featured: true,
     type: "Professional",
   },
