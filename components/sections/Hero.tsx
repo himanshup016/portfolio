@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 import { ArrowDown } from "lucide-react";
 import { Button, buttonVariants } from "@/components/ui/button";
 import { siteConfig, typingRoles } from "@/lib/data";
@@ -42,9 +42,9 @@ const socials = [
   { icon: Icons.twitter, href: siteConfig.twitter, label: "Twitter / X" },
 ];
 
-const fadeUp = {
+const fadeUp: Variants = {
   hidden: { opacity: 0, y: 30 },
-  show: (delay = 0) => ({ opacity: 1, y: 0, transition: { duration: 0.6, delay, ease: [0.22, 1, 0.36, 1] } }),
+  show: (delay: number = 0) => ({ opacity: 1, y: 0, transition: { duration: 0.6, delay, ease: [0.22, 1, 0.36, 1] } }),
 };
 
 export default function HeroSection() {
