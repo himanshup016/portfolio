@@ -1,8 +1,8 @@
 "use client";
 
-import { useRef } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
-import { Briefcase, MapPin, Calendar } from "lucide-react";
+import { useState, useRef } from "react";
+import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion";
+import { Briefcase, MapPin, Calendar, ChevronDown, ChevronUp } from "lucide-react";
 import { experiences } from "@/lib/data";
 
 export default function ExperienceSection() {
@@ -47,83 +47,114 @@ export default function ExperienceSection() {
           />
 
           <div className="flex flex-col gap-12">
-            {experiences.map((exp, i) => {
-              const isEven = i % 2 === 0;
-              return (
-                <motion.div
-                  key={exp.id}
-                  initial={{ opacity: 0, x: isEven ? -30 : 30 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true, margin: "-60px" }}
-                  transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-                  className={`relative flex gap-8 md:gap-0 ${isEven ? "md:flex-row" : "md:flex-row-reverse"
-                    }`}
-                >
-                  {/* Desktop: half-width card */}
-                  <div className="hidden md:block md:w-[calc(50%-2rem)]" />
-
-                  {/* Dot */}
-                  <div className="relative flex flex-col items-center shrink-0 pl-6 md:pl-0 md:w-16 md:items-center">
-                    <div className="size-4 rounded-full bg-primary border-4 border-background shadow-md shadow-primary/30 z-10 md:mt-6" />
-                  </div>
-
-                  {/* Card */}
-                  <div
-                    className={`flex-1 md:w-[calc(50%-2rem)] bg-card border border-border/50 rounded-2xl p-6 hover:border-primary/30 hover:shadow-lg hover:shadow-primary/5 transition-all duration-300 group ${isEven ? "md:ml-8" : "md:mr-8"
-                      }`}
-                  >
-                    {/* Top accent */}
-                    <div className="absolute top-0 inset-x-0 h-px rounded-t-2xl bg-gradient-to-r from-transparent via-primary/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-
-                    <div className="flex flex-wrap items-start justify-between gap-2 mb-3">
-                      <div>
-                        <h3 className="text-lg font-bold text-foreground">{exp.role}</h3>
-                        <div className="flex items-center gap-1.5 text-primary font-semibold text-sm mt-0.5">
-                          <Briefcase className="size-3.5" />
-                          {exp.company}
-                        </div>
-                      </div>
-                      <div className="flex flex-col items-end gap-1 text-xs text-muted-foreground">
-                        <span className="flex items-center gap-1">
-                          <Calendar className="size-3" />
-                          {exp.period}
-                        </span>
-                        <span className="flex items-center gap-1">
-                          <MapPin className="size-3" />
-                          {exp.location}
-                        </span>
-                      </div>
-                    </div>
-
-                    <p className="text-sm text-muted-foreground leading-relaxed mb-4">{exp.description}</p>
-
-                    <div className="flex flex-wrap gap-2">
-                      {exp.skills.map((skill) => (
-                        <span
-                          key={skill}
-                          className="text-[11px] font-semibold px-2.5 py-1 rounded-full bg-primary/10 text-primary"
-                        >
-                          {skill}
-                        </span>
-                      ))}
-                    </div>
-                    <div className="flex flex-wrap gap-2 mb-5">
-                      {exp.tools.map((tool) => (
-                        <span
-                          key={tool}
-                          className="text-[11px] font-semibold px-2.5 py-1 rounded-full bg-primary/10 text-primary"
-                        >
-                          {tool}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-                </motion.div>
-              );
-            })}
+            {experiences.map((exp, i) => (
+              <ExperienceCard key={exp.id} exp={exp} index={i} />
+            ))}
           </div>
         </div>
       </div>
     </section>
+  );
+}
+
+function ExperienceCard({ exp, index }: { exp: typeof experiences[0]; index: number }) {
+  const [isExpanded, setIsExpanded] = useState(false);
+  const isEven = index % 2 === 0;
+  const initialPoints = 3;
+  const hasMore = exp.description.length > initialPoints;
+  const displayedDescription = isExpanded ? exp.description : exp.description.slice(0, initialPoints);
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, x: isEven ? -30 : 30 }}
+      whileInView={{ opacity: 1, x: 0 }}
+      viewport={{ once: true, margin: "-60px" }}
+      transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+      className={`relative flex gap-8 md:gap-0 ${isEven ? "md:flex-row" : "md:flex-row-reverse"
+        }`}
+    >
+      {/* Desktop: half-width card */}
+      <div className="hidden md:block md:w-[calc(50%-2rem)]" />
+
+      {/* Dot */}
+      <div className="relative flex flex-col items-center shrink-0 pl-6 md:pl-0 md:w-16 md:items-center">
+        <div className="size-4 rounded-full bg-primary border-4 border-background shadow-md shadow-primary/30 z-10 md:mt-6" />
+      </div>
+
+      {/* Card */}
+      <div
+        className={`flex-1 md:w-[calc(50%-2rem)] bg-card border border-border/50 rounded-2xl p-6 hover:border-primary/30 hover:shadow-lg hover:shadow-primary/5 transition-all duration-300 group relative ${isEven ? "md:ml-8" : "md:mr-8"
+          }`}
+      >
+        {/* Top accent */}
+        <div className="absolute top-0 inset-x-0 h-px rounded-t-2xl bg-gradient-to-r from-transparent via-primary/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+
+        <div className="flex flex-wrap items-start justify-between gap-2 mb-3">
+          <div>
+            <h3 className="text-lg font-bold text-foreground">{exp.role}</h3>
+            <div className="flex items-center gap-1.5 text-primary font-semibold text-sm mt-0.5">
+              <Briefcase className="size-3.5" />
+              {exp.company}
+            </div>
+          </div>
+          <div className="flex flex-col items-end gap-1 text-xs text-muted-foreground">
+            <span className="flex items-center gap-1">
+              <Calendar className="size-3" />
+              {exp.period}
+            </span>
+            <span className="flex items-center gap-1">
+              <MapPin className="size-3" />
+              {exp.location}
+            </span>
+          </div>
+        </div>
+
+        <ul className="space-y-3 mb-4">
+          <AnimatePresence mode="popLayout">
+            {displayedDescription.map((point, idx) => (
+              <motion.li
+                key={idx}
+                initial={{ opacity: 0, height: 0 }}
+                animate={{ opacity: 1, height: "auto" }}
+                exit={{ opacity: 0, height: 0 }}
+                transition={{ duration: 0.3 }}
+                className="text-sm text-muted-foreground leading-relaxed flex gap-2"
+              >
+                <span className="shrink-0 mt-1.5 size-1.5 rounded-full bg-primary/40" />
+                <span>{point}</span>
+              </motion.li>
+            ))}
+          </AnimatePresence>
+        </ul>
+
+        {hasMore && (
+          <button
+            onClick={() => setIsExpanded(!isExpanded)}
+            className="flex items-center gap-1.5 text-sm font-semibold text-primary hover:text-primary/80 transition-colors"
+          >
+            {isExpanded ? (
+              <>
+                Show Less <ChevronUp className="size-4" />
+              </>
+            ) : (
+              <>
+                Show More <ChevronDown className="size-4" />
+              </>
+            )}
+          </button>
+        )}
+
+        <div className="flex flex-wrap gap-2 mt-4">
+          {exp.skills.map((skill) => (
+            <span
+              key={skill}
+              className="text-[11px] font-semibold px-2.5 py-1 rounded-full bg-primary/10 text-primary"
+            >
+              {skill}
+            </span>
+          ))}
+        </div>
+      </div>
+    </motion.div>
   );
 }

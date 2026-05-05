@@ -42,9 +42,9 @@ export default function AboutSection() {
           {/* Left — text */}
           <div className="space-y-6">
             {[
-              `I'm ${" "}a Full-Stack Engineer with 3+ years of experience building scalable web applications from the ground up. My sweet spot is the intersection of great engineering and beautiful design.`,
-              `I specialize in the React ecosystem — from crafting pixel-perfect component libraries to designing complex backend architectures with Node.js and cloud services. I care deeply about performance, accessibility, and developer experience.`,
-              `When I'm not shipping code, you'll find me contributing to open source, exploring new design trends, or mentoring junior developers. I believe that great software is made by teams who communicate well and ship fast.`,
+              `I'm ${" "}a Full-Stack Software Engineer with 3+ years of experience architecting high-performance MERN stack applications. Specialize in building scalable distributed systems and event-driven architectures that deliver measurable business impact, such as improving load performance by 30%.`,
+              `Expertize in the React and Node.js ecosystem — from designing reusable UI libraries with Material UI that cut code duplication by 40%, to implementing secure JWT/RBAC systems and AWS cloud deployments. Care deeply about quality, maintaining 85%+ test coverage and ensuring zero critical bugs through rigorous performance profiling.`,
+              `Beyond shipping code, I have mentored junior developers to improve team code quality by 35% and accelerated delivery with a 95%+ sprint completion rate. Believe in engineering excellence, leveraging modern CI/CD pipelines and AI tools to build accessible, user-centric software that scales.`,
             ].map((text, i) => (
               <motion.p
                 key={i}

@@ -7,7 +7,7 @@ export const siteConfig = {
   email: "himanshupise016@gmail.com",
   github: "https://github.com/himanshup016/",
   linkedin: "https://www.linkedin.com/in/himanshu-pise/",
-  twitter: "https://twitter.com/himanshu",
+  twitter: "#",
   resumeUrl: "/resume.pdf",
 };
 
@@ -21,7 +21,6 @@ export const navLinks = [
 
 export const typingRoles = [
   "Full-Stack Engineer",
-  "UI/UX Designer",
   "Frontend Engineer",
   "React Specialist",
   "Open Source Enthusiast",
@@ -125,7 +124,7 @@ export const projects = [
     title: "Headless LMS – Adobe Learning Manager (ALM) Integration",
     description:
       "Enterprise LMS serving 15,000+ active users. Designed modular, API-driven architecture with distributed content delivery, infinite scrolling, and server-side pagination for 100,000+ records.",
-    tags: ["React.js", "Node.js", "Express.js", "MongoDB", "Redis", "ALM API"],
+    tags: ["React.js", "Node.js", "Express.js", "MongoDB", "ALM API"],
     github: "https://github.com/himanshu/lms-integration", // Placeholder based on GitHub profile link
     live: "https://lms.demo",
     featured: true,
@@ -171,14 +170,23 @@ export const experiences = [
     id: 1,
     role: "Software Engineer",
     company: "Harbinger Group",
-    location: "Pune, India",
+    location: "Pune, Maharashtra, India",
     period: "January 2023 – Present",
-    description:
-      "Architected MERN stack features improving performance by 30%. Designed a reusable UI library with Material UI, reducing duplication by 40%. Implemented RBAC/JWT security and led technical initiatives for junior developers while maintaining 85%+ test coverage.",
+    description: [
+      "Architected high-performance MERN stack applications, improving application load performance by 30% through optimized API queries, code-splitting, and lazy loading.",
+      "Implemented secure authentication and authorization systems utilizing JWT and Role-Based Access Control (RBAC), reducing security vulnerabilities by 60%.",
+      "Optimized MongoDB performance using indexing and aggregation pipelines, reducing average API response times by 45% for high-traffic distributed endpoints.",
+      "Built and deployed automated CI/CD pipelines using GitHub Actions and Docker, cutting manual release errors and reducing deployment time by 50%.",
+      "Designed a reusable UI component library using React, TypeScript, and Material UI, which reduced code duplication by 40% and increased development velocity by 25%.",
+      "Established 85%+ test coverage using Jest and React Testing Library, enforced via SonarQube to ensure zero critical bugs in production.",
+      "Led technical initiatives for junior developers through code reviews and system design workshops, improving team code quality scores by 35%.",
+      "Leveraged AI tools like ChatGPT, Claude, and Gemini to accelerate development, debug complex issues, and enhance code quality."
+    ],
     skills: ["React.js", "Node.js", "Express.js", "MongoDB", "TypeScript",
-      "Material UI", "Redux Toolkit", "Jest",
-      "GraphQL", "AWS", "Jira", "Confluence", "Docker", "Git"],
-    tools: ["Intellum LMS", "Adobe Learning Manager", "Workato", "Jira", "Git",]
+      "Redux Toolkit", "Jest",
+      "GraphQL", "AWS", "Jira", "Docker", "Git",
+      "Intellum LMS", "Adobe Learning Manager", "Workato"
+    ]
   },
 ];
 
